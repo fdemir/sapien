@@ -1,0 +1,5 @@
+name: Sapien
+version: ${project.version}
+main: me.sapien.plugin.sapien.Sapien
+api-version: 1.13
+description: Minecraft plugin that allows writing javascript code 
