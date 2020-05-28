@@ -2,4 +2,8 @@ name: Sapien
 version: ${project.version}
 main: me.sapien.plugin.sapien.Sapien
 api-version: 1.13
-description: Minecraft plugin that allows writing javascript code 
+description: Minecraft plugin that allows writing javascript code
+commands:
+  test:
+    description: Your description
+    usage: /test
