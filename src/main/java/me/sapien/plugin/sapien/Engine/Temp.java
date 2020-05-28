@@ -9,12 +9,12 @@ import java.util.UUID;
 
 public class Temp {
 
-    private static String tmpPath = Sapien.getInstance().getDataFolder().getAbsolutePath() + "/tmp";
+    private String tmpPath = Sapien.getInstance().getDataFolder().getAbsolutePath() + "/tmp";;
 
     /**
      * @return The path of generated temp directory.
      */
-    public static String createOnExit() {
+    public String createOnExit() {
         File tmp = new File(tmpPath);
 
         if(!tmp.exists()) {
@@ -26,7 +26,7 @@ public class Temp {
         return path;
     }
 
-    public static void clear() {
+    public void clear() {
         try {
             FileUtils.cleanDirectory(new File(tmpPath));
         } catch (IOException e) {

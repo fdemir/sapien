@@ -4,7 +4,7 @@ import me.sapien.plugin.sapien.Sapien;
 
 public class Config {
 
-    public static void init() {
+    public void init() {
         Sapien.getInstance().getConfig().options().copyDefaults(true);
         Sapien.getInstance().saveConfig();
     }

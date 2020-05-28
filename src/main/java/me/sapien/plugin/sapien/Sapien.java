@@ -1,9 +1,9 @@
 package me.sapien.plugin.sapien;
 
-import me.sapien.plugin.sapien.Command.Test;
 import me.sapien.plugin.sapien.Config.Config;
-import me.sapien.plugin.sapien.Core.Effect;
+import me.sapien.plugin.sapien.Core.Function;
 import me.sapien.plugin.sapien.Engine.Runtime;
+import me.sapien.plugin.sapien.Engine.Temp;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Sapien extends JavaPlugin {
@@ -13,22 +13,34 @@ public final class Sapien extends JavaPlugin {
         return instance;
     }
 
+    public Temp temp;
+    public Runtime runtime;
+    public Function function;
+    private Config config;
+
+    @Override
+    public void onLoad() {
+        instance = this;
+        this.temp = new Temp();
+        this.runtime = new Runtime(temp);
+        this.config = new Config();
+        this.function = new Function();
+    }
+
     @Override
     public void onEnable() {
-        instance = this;
-        //getCommand("test").setExecutor(new Test());
+        config.init();
+        runtime.init();
 
-        Config.init();
-        Runtime.init();
+        function.loadAll();
 
 
-        Effect.loadAll();
         getLogger().info("Sapien has been enabled.");
     }
 
     @Override
     public void onDisable() {
-        Runtime.terminate();
+        runtime.terminate();
         getLogger().info("Sapien has been disabled.");
     }
 }
