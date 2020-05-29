@@ -8,11 +8,17 @@ import org.bukkit.entity.Player;
 
 public class Broadcast implements IFunction {
 
+    /**
+     * Broadcast a message to all players.
+     * @param receiver
+     * @param parameters
+     */
     @Override
     public void invoke(final V8Object receiver, final V8Array parameters) {
         if (parameters.length() > 0) {
             Object arg1 = parameters.get(0);
 
+            // @refactor
             for(Player player : Bukkit.getOnlinePlayers()) {
                 player.sendMessage(arg1.toString());
             }
