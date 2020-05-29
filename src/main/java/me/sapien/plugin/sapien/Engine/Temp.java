@@ -16,7 +16,6 @@ public class Temp {
      */
     public String createOnExit() {
         File tmp = new File(tmpPath);
-
         if(!tmp.exists()) {
             tmp.mkdir();
         }
@@ -27,8 +26,14 @@ public class Temp {
     }
 
     public void clear() {
+        File tmp = new File(tmpPath);
+
+        if(!tmp.exists()) {
+            return;
+        }
+
         try {
-            FileUtils.cleanDirectory(new File(tmpPath));
+            FileUtils.cleanDirectory(tmp);
         } catch (IOException e) {
             System.out.println("Temp directory could not delete:" + e);
         }
