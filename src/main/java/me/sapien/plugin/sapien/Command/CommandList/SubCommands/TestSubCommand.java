@@ -1,7 +1,7 @@
-package me.sapien.plugin.sapien.commandlib.commandexamples.subs;
+package me.sapien.plugin.sapien.Command.CommandList.SubCommands;
 
 import java.util.List;
-import me.sapien.plugin.sapien.commandlib.SubCommand;
+import me.sapien.plugin.sapien.Command.SubCommand;
 import org.bukkit.command.CommandSender;
 
 public final class TestSubCommand extends SubCommand {

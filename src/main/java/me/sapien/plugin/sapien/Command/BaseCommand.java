@@ -1,13 +1,16 @@
-package me.sapien.plugin.sapien.commandlib;
+package me.sapien.plugin.sapien.Command;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public abstract class BaseCommand extends SubCommand implements CommandExecutor, TabCompleter {
 
@@ -26,10 +29,11 @@ public abstract class BaseCommand extends SubCommand implements CommandExecutor,
         return this.onTabComplete(sender, new LinkedList<>(Arrays.asList(args)));
     }
 
-    public void register(final Plugin plugin) {
-        // TODO Change this into reflection.
-        // plugin.getCommand(this.getName()).setExecutor(this);
-        // plugin.getCommand(this.getName()).setTabCompleter(this);
+    public void register(final JavaPlugin plugin) {
+        Optional.ofNullable(plugin.getCommand(this.getName())).ifPresent(pluginCommand ->
+                pluginCommand.setExecutor(this));
+        Optional.ofNullable(plugin.getCommand(this.getName())).ifPresent(pluginCommand ->
+                pluginCommand.setTabCompleter(this));
     }
 
 }

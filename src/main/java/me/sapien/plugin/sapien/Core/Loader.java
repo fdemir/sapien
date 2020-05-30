@@ -18,12 +18,12 @@ public class Loader {
         if(scripts.exists() && scripts.listFiles().length > 0) {
             for(File f : scripts.listFiles()) {
                 if(FilenameUtils.getExtension(f.getName()).equals("js")) {
-                    try {
-                        String script = Files.readString(Paths.get(f.getPath()), StandardCharsets.UTF_8);
-                        Sapien.getInstance().runtime.getRuntime().executeScript(script);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    // try {
+                    //    String script = Files.readString(Paths.get(f.getPath()), StandardCharsets.UTF_8);
+                    //    Sapien.getInstance().runtime.getRuntime().executeScript(script);
+                    // } catch (IOException e) {
+                    //    e.printStackTrace();
+                    // }
                 }
             }
         }

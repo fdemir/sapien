@@ -1,5 +1,7 @@
 package me.sapien.plugin.sapien;
 
+import me.sapien.plugin.sapien.Command.BaseCommand;
+import me.sapien.plugin.sapien.Command.CommandList.SapienCommand;
 import me.sapien.plugin.sapien.Config.Config;
 import me.sapien.plugin.sapien.Core.Function;
 import me.sapien.plugin.sapien.Core.Loader;
@@ -53,6 +55,9 @@ public final class Sapien extends JavaPlugin implements Listener {
         runtime.init();
         function.loadAll();
         loader.loadAllScripts();
+
+        new SapienCommand(this);
+
         getLogger().info("Sapien has been enabled.");
     }
 
