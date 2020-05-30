@@ -5,6 +5,12 @@ Sapien is a minecraft plugin that let you write javascript code for your server.
 
 ## Examples
 
+```js
+command('welcome', function() {
+  broadcast('Welcome!')
+})
+```
+
 ## Documentation
 
 ## Contributors
